@@ -1,0 +1,46 @@
+<h1 class="titler" routerLink="/">MY GYM</h1>
+
+<nav class="navigation">
+    <div class="container-fluid" >
+      <div class="navbar-header">
+
+        <a class="navbar-brand nav-btn" style="border-right-style: solid; border-right-width: 1px; padding-right: 20px; border-color: rgb(247, 244, 244); color: rgb(247, 244, 244); ">.</a>
+
+
+        <a *ngIf="authServ.isAdmin()" routerLink="/listaUtenti" class="navbar-brand nav-btn" style="border-right-style: solid; border-right-width: 1px; padding-right: 20px; border-color: #80808063;">LISTA UTENTI</a>
+        <a *ngIf="authServ.isAuth()" routerLink="/scheda" class="navbar-brand nav-btn" style="border-right-style: solid; border-right-width: 1px; padding-right: 20px; border-color: #80808063;">SCHEDA</a>
+        <a *ngIf="!authServ.isAuth()" routerLink="/signIn" class="navbar-brand nav-btn" style="float: right;" >LOGIN</a>       
+        <a *ngIf="authServ.isAuth()" routerLink="" (click)="logOut()" class="navbar-brand nav-btn" style="float: right;">LOGOUT</a>
+
+      </div>
+    </div>
+  </nav>
+
+  <style>
+  
+  .navigation {
+    border: 1px; border-style: solid; 
+    background-color: rgb(247, 244, 244); 
+    border-color: lightgrey;
+    margin-bottom: 40px;
+  }
+
+
+  .nav-btn :hover{
+    color: yellow;
+  }
+
+  .titler:hover{
+    color: blue;
+    cursor: pointer;
+  }
+
+    .titler{
+    background-color: #a8a8a8;
+    text-align: center; 
+    font-weight: bold; 
+    padding: 20px;
+    margin: 0px;
+  }
+  
+  </style>

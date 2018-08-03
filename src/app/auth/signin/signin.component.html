@@ -1,0 +1,36 @@
+<form (ngSubmit)="onSignIn(f)" #f="ngForm" >
+
+  <p>  
+  <input style="margin-top: 40px;" class="input inn" ngModel name="nome" placeholder="Nome">
+  </p>
+
+  <p>
+  <input class="input inn" ngModel name="password" placeholder="Password">
+  </p>
+
+<button style="border-radius: 7px;" class="btn btn-primary" type="submit">Sign In</button>
+
+
+
+<div class="msg">
+  <p>
+    {{message}}
+  </p>
+</div>
+
+</form>
+
+
+
+<style>
+  .inn::placeholder {
+    text-align: center;
+    
+}
+
+.inn {
+  border-radius: 7px;
+  margin-bottom: 20px;
+  }
+
+</style>

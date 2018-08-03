@@ -1,0 +1,54 @@
+<div class="row" *ngIf="showCerca && authServ.isAdmin()" style="margin: auto;
+    width: 50%;display: block;">
+    <div class="col-xs-10" style="margin-right:20px">
+
+  <label for="nomel" style="margin-right: 10px;">Nome: </label>
+  <input id="nomel" [(ngModel)]="nomel" name="nomel" class="input">
+  </div>
+  <br>
+  <div class="col-xs-10">
+  <button style="margin-right:20px" class="btn btn-primary" (click)="onCercaClick()">Cerca</button>
+  <button style="margin-right:20px" class="btn btn-primary" (click)="modSchedaClick()">Modifica</button>
+  </div>
+</div>
+
+
+<div *ngIf="!showCerca || !authServ.isAdmin()">
+    <div class="col-xs-10">
+      <h3>{{nomel}}</h3>
+      <hr>
+        <p *ngFor="let esercizio of esercizi; let i = index">
+            {{esercizio.nome}} {{esercizio.quantita}} <a href="{{esercizio.video}}"><img width="150" alt="{{esercizio.nome}}" src="{{esercizio.immagine}}" style="margin-right: 100px;"></a>
+        <button *ngIf="authServ.isAdmin()" style="margin-right:20px" class="btn btn-primary" (click)="eliminaEsercizio(i)"> Elimina </button>
+        </p>
+<hr>
+<div *ngIf="authServ.isAdmin()" style="float: left;">
+    <h3>Sezione Istruttore</h3>
+    <p>Aggiungi Esercizio</p>
+          <form>
+            <div style="margin-bottom: 20px;">
+        <p>
+          <input required name="nome" [(ngModel)]="nome" placeholder="Nome">
+        </p>
+      <p>
+          <input required name="quantita" [(ngModel)]="quantita" placeholder="Quantità">
+        </p>
+      <p>
+        <input required name="immagine" [(ngModel)]="immagine" placeholder="Immagine Url">
+      </p> 
+    <p> 
+        <input required name="video" [(ngModel)]="video" placeholder="Video Url">
+      </p>  
+      </div>
+            <button tyoe="submit" style="margin-right:20px" class="btn btn-primary" (click)="addNewEsercizio()"> Aggiungi </button>
+          </form>
+          
+
+<hr>
+
+</div>
+<div *ngIf="authServ.isAdmin()" style="float: right;">
+<button style="margin-right:20px" class="btn btn-primary" (click)="salva()"> Salva </button>
+</div>
+      </div>
+</div>

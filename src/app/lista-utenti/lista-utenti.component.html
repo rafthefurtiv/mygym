@@ -1,0 +1,11 @@
+
+<p>
+  <label for="ricerca" style="margin-right: 20px;">CERCA: </label>
+  <input type="text" (keyup)="cerca()" [(ngModel)]="ricerca" placeholder="Cerca...">
+</p>
+
+
+
+<p *ngFor="let cliente of utenti; let i = index">
+  <a class="btn" [routerLink]="['/scheda', cliente.fullName]">{{cliente.fullName | uppercase}}</a>
+</p>
